@@ -6,7 +6,7 @@ public class PlayerInventory : MonoBehaviour {
 	private SectionController.Ingredient[] inventory;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		inventory = new SectionController.Ingredient[5];
 
 		for(int i = 0; i < inventory.Length; i++){
@@ -23,7 +23,7 @@ public class PlayerInventory : MonoBehaviour {
 		for(int i = 0; i < inventory.Length; i++){
 			if(inventory[i] == SectionController.Ingredient.Empty){
 				inventory[i] = ingredient;
-				print(inventory);
+				//print(inventory);
 				return inventory;
 			}
 		}

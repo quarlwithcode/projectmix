@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 		inventory = GetComponent<PlayerInventory>();
+		uiManager.inventory = inventory;
 	}
 	
 	// Update is called once per frame

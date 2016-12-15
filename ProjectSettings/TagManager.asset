@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Section
   - UIManager
+  - NPC
+  - StartMenu
+  - GameOverMenu
   layers:
   - Default
   - TransparentFX

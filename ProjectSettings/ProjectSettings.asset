@@ -527,7 +527,7 @@ PlayerSettings:
     Game_Performance: 0
     Hub: 0
     Purchasing: 0
-    UNet: 0
+    UNet: 1
     Unity_Ads: 0
   cloudProjectId: 3692b461-059a-43fe-a750-4dc9d89c5857
   projectName: ProjectMix

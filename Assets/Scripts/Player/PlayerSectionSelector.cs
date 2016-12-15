@@ -5,7 +5,7 @@ public class PlayerSectionSelector : MonoBehaviour {
 
 	public GameObject section;
 	public PlayerController pControl;
-	private SectionController.Ingredient currIng;
+	private DrinkController.Ingredient currIng;
 	// Use this for initialization
 	void Start () {
 		pControl = GetComponent<PlayerController>();
@@ -18,7 +18,7 @@ public class PlayerSectionSelector : MonoBehaviour {
 		if (Physics.Raycast(transform.position, Vector3.forward, out hit, 100.0f)){
 			
 			if(hit.collider.tag == "Section"){
-				currIng = hit.collider.GetComponent<SectionController>().ingredient;
+				currIng = hit.collider.GetComponent<BarSectionController>().ingredient;
 				pControl.uiManager.currIng = currIng;
 			}
 		}

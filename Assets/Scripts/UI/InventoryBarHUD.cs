@@ -9,11 +9,11 @@ public class InventoryBarHUD : MonoBehaviour {
 	private PlayerInventory inventory;
 	private Image[] panels;
 
-	private SectionController.Ingredient[] ingredients;
+	private DrinkController.Ingredient[] ingredients;
 	// Use this for initialization
 	void Start () {
 		inventory = uiManager.inventory;
-		ingredients = inventory.getInventory();
+		ingredients = inventory.getIngredients();
 		print(gameObject.GetComponentsInChildren<Image>()[1]);
 		panels = new Image[ingredients.Length];
 
@@ -25,38 +25,42 @@ public class InventoryBarHUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
-		if(Input.GetKeyDown(KeyCode.Space)){
-			ingredients = inventory.getInventory();
+		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q)){
+			ingredients = inventory.getIngredients();
 			for(int i = 0; i < ingredients.Length; i++){
 				switch(ingredients[i]){
-				case (SectionController.Ingredient.Vodka):
+				case (DrinkController.Ingredient.Vodka):
 					print("Vodka!");
 					panels[i+1].color = new Color(.398F,.199F,.598F);		//purple = new Color(.398F,.199F,.598F)
 					break;
-				case (SectionController.Ingredient.Rum):
+				case (DrinkController.Ingredient.Rum):
 					panels[i+1].color = new Color(0,0,(255/256F));		//purple = new Color(.398F,.199F,.598F)
 					break;
-				case (SectionController.Ingredient.Whiskey):
+				case (DrinkController.Ingredient.Whiskey):
 					panels[i+1].color = new Color(255/256F,0,255/256F);		//purple = new Color(.398F,.199F,.598F)
 					break;
-				case (SectionController.Ingredient.Tequila):
+				case (DrinkController.Ingredient.Tequila):
 					panels[i+1].color = new Color(0,128/256F,0);		//purple = new Color(.398F,.199F,.598F)
 					break;
-				case (SectionController.Ingredient.Ice):
+				case (DrinkController.Ingredient.Ice):
 					panels[i+1].color = new Color(128/256F,128/256F,128/256F);		//purple = new Color(.398F,.199F,.598F)
 					break;
-				case (SectionController.Ingredient.Citrus):
+				case (DrinkController.Ingredient.Fruit):
 					panels[i+1].color = new Color(255/256F,165/256F,0);		//purple = new Color(.398F,.199F,.598F)
 					break;
-				case (SectionController.Ingredient.Soda):
+				case (DrinkController.Ingredient.Soda):
 					panels[i+1].color = new Color(255/256F,255/256F,0);		//purple = new Color(.398F,.199F,.598F)
 					break;
-				case (SectionController.Ingredient.Garnish):
+				case (DrinkController.Ingredient.Garnish):
 					panels[i+1].color = new Color(255/256F,0,0);		//purple = new Color(.398F,.199F,.598F)
+					break;
+				case (DrinkController.Ingredient.Empty):
+					panels[i+1].color = new Color(1,1,1);		//purple = new Color(.398F,.199F,.598F)
 					break;
 				}
 
 			}
+				
 		}
 	}
 }
